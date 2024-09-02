@@ -1,0 +1,34 @@
+﻿<Window x:Class="UI.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+        xmlns:local="clr-namespace:UI.Wpf"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
+        Title="MainWindow" Height="450" Width="1500">
+    <Grid>
+        <!-- Define two columns of equal width -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- First section -->
+        <Border Grid.Column="0" Background="LightBlue">
+            <gmap:GMapControl x:Name="MyMap"/>
+        </Border>
+
+        <!-- Second section -->
+        <Border Padding="10" Grid.ColumnSpan="2" Margin="533,0,-54,0">
+            <StackPanel Margin="465,0,63,0">
+                <GroupBox Header="Soldiers">
+                    <DataGrid ItemsSource="{Binding Soldiers}" AutoGenerateColumns="True" />
+                </GroupBox>
+                <!-- Button to add new line -->
+                <!--<Button Content="Create New Line" Margin="5" Click="CreateNewLine_Click" />-->
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
